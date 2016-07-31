@@ -1,0 +1,52 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class='sadrzaj'>
+		<ul id="images">
+			<li>
+				<a href="fragment-1.html"><img src="images/image-1.jpg"></a>
+			</li>
+			<li>
+				<a href="fragment-2.html"><img src="images/image-2.jpg"></a>
+			</li>
+			<li>
+				<a href="fragment-3.html"><img src="images/image-3.jpg"></a>
+			</li>
+			<li>
+				<a href="fragment-4.html"><img src="images/image-4.jpg"></a>
+			</li>
+		</ul>
+      
+	</div>
+	<div id="description"></div>
+	<div id="dejan2"></div>
+	<script src='js/jquery-1.11.3.min.js'></script>
+	<script>
+        $(document).ready(function(){
+           
+            var $slike=$('#images');  //$ jer je to jquery promenljiva
+           
+            $slike.find('a').on('click', function(event){ // all datas are in event
+                event.preventDefault(); // banned link path href 
+                var $description = $('#description');
+                switch($(this).attr('href'))   {
+                    // datas are in $(this) at click moment on certain image,  and then we want href attribute from $(this)
+                    case 'fragment-1.html': $description.load('fragments/fragment-1.html'); // html pages are loading into $description
+                        break;
+                    case 'fragment-2.html': $description.load('fragments/fragment-2.html');
+                        break;
+                    case 'fragment-3.html': $description.load('fragments/fragment-3.html');
+                        break;
+                    case 'fragment-4.html': $description.load('fragments/fragment-4.html');
+                        break;
+                }
+            });
+            
+        });
+
+	</script>
+</body>
+</html>
